@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/navjoth/jenkins-python-demo.git'
+                git 'https://github.com/navjoth/jenkins-python-demo.git'
             }
         }
         stage('Setup Environment') {
             steps {
-                sh 'python -m venv venv && venv\\Scripts\\activate'
+                sh 'python -m venv venv && venv\Scripts\activate'
                 sh 'pip install -r requirements.txt || echo "No requirements.txt found"'
             }
         }
@@ -19,4 +19,3 @@ pipeline {
         }
     }
 }
-
